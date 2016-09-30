@@ -1,0 +1,242 @@
+<ion-view view-title="{{'home' | translate}}">
+	<ion-nav-title>
+		<img class="" src="img/logo.png">
+	</ion-nav-title>
+	<ion-content>
+
+		<!-- img swiper -->
+		<div class="homebanner-swiper-container">
+			<img class="loading-image" src="img/loading.gif">
+			<ion-slide-box delegate-handle="image-viewer" show-pager="true"
+					auto-play="true" does-continue="true"
+					slide-interval="3000" on-slide-changed="goFirst($index)"
+					>
+				<ion-slide ng-repeat="img in banner1" ng-init="updateSlider()">
+					<img class="fullwidth" ng-src="{{img}}"><span></span>
+				</ion-slide>
+			</ion-slide-box>
+		</div>
+		<!-- end img swiper -->
+		<div class="list list-inset">
+			<form id="search" ng-submit="onSearch()">
+				<div class="item item-input-inset">
+					<label class="item-input-wrapper">
+						<!--<label class="item item-input">-->
+						<i class="icon ion-search placeholder-icon"></i>
+						<input type="text" placeholder="{{'enter_the_key' | translate}}" ng-model="searchData.text">
+					</label>
+					<button class="button button-small button-assertive">
+						Submit
+					</button>
+					<!--<button type="submit" class="button button-full button-assertive">{{'quick_search' | translate}}</button>-->
+				</div>
+			</form>
+		</div>
+		<!--
+
+[{
+	"category_id": "722",
+	"name": "Accessories",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "accessories.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 73,
+	"children": ["Alteration", "Belts", "Chokers, Bracelets, Flower Pins, Brooches", "Hair Accessories", "Mitts, Gloves, Add-a-sleeve", "fans", "purses", "wands"]
+}, {
+	"category_id": "717",
+	"name": "Biketards",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "biketards.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 51,
+	"children": ["Halter, Cami, Tarzan, & Open Or Strappy Backs-all"]
+}, {
+	"category_id": "715",
+	"name": "Briefs",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "briefs.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 6,
+	"children": ["Briefs"]
+}, {
+	"category_id": "759",
+	"name": "Clearance Rack",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "clearance.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 138,
+	"children": ["Accessories", "Bottoms", "Costumes - Discounted Pricing", "Skirts", "Tops & Leotards"]
+}, {
+	"category_id": "743",
+	"name": "Costumes",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "costumes.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 807,
+	"children": ["CURRENT YEAR 2016-2017 Catalog", "Previous - Characters,themes, Animal", "Previous Other Costumes", "READY-TO-SHIP Costumes"]
+}, {
+	"category_id": "706",
+	"name": "Fabric",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "fabric.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 27,
+	"children": ["Appliques & Trims & Beaded Fringe", "Stretch Fabrics"]
+}, {
+	"category_id": "700",
+	"name": "Leotards",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "leotards.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 20,
+	"children": ["All Leotards", "Build Your Own- You Choose The Front"]
+}, {
+	"category_id": "708",
+	"name": "Pants",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "pants.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 16,
+	"children": ["Jazz & Boot Pants & Chaps"]
+}, {
+	"category_id": "767",
+	"name": "Size Chart",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "size-chart.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": false,
+	"is_virtual": null,
+	"product_count": 0,
+	"children": []
+}, {
+	"category_id": "702",
+	"name": "Skirts",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "skirts.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 47,
+	"children": ["Made-to-Order skirts", "Pre-made Skirts"]
+}, {
+	"category_id": "719",
+	"name": "Tights & Boy Shorts",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "tights-boy-shorts.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 20,
+	"children": ["Ankle Leggings"]
+}, {
+	"category_id": "710",
+	"name": "Tops",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "tops.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 2,
+	"children": ["Men's Tops - Looser Around Waist", "Tops - All"]
+}, {
+	"category_id": "712",
+	"name": "Unitards",
+	"is_active": "1",
+	"position ": null,
+	"level ": 2,
+	"url_key": "unitards.html",
+	"thumbnail_url": null,
+	"image_url": false,
+	"has_children": true,
+	"is_virtual": null,
+	"product_count": 3,
+	"children": ["Halter, Cami, Tarzan, & Open Or Strappy Backs-all"]
+}]
+		-->
+		<div class="padding-horizontal">
+			<button class="button button-full button-dark icon icon-right ion-social-rss" ng-init="toggleText='Browse Catalog'" ng-click="showCats = !showCats; toggleText = showCats ? 'Hide Categories' : 'Browse Catalog';">{{toggleText}}</button>
+			<ion-list ng-show="showCats">
+				<div ng-repeat="catIndex in cats">
+					<ion-item class="item-stable" ng-click="toggleGroup(catIndex, cats)" ng-class="{active: isGroupShown(catIndex)}">
+						<i class="icon" ng-class="isGroupShown(catIndex) ? 'ion-minus' : 'ion-plus'"></i>
+						{{catIndex.cat.name}}
+					</ion-item>
+					<ion-item href="#/" class="item-accordion button button-block button-stable" ng-repeat="catChild in catIndex.cat.children" ng-show="isGroupShown(catIndex)">
+						{{catChild.childCatId}}
+					</ion-item>
+				</div>
+			</ion-list>
+		</div>
+
+		<div class="padding-horizontal">
+			<div class="button-bar">
+				<a href="#app/searchAdv" class="button button-light icon icon-top ion-ios-search-strong"><br>
+					{{'product_searchadv' | translate}}</a>
+				<a href="#app/lists/daily_sale" class="button button-light icon icon-top ion-ios-pricetags-outline"><br>
+					{{'latest_promotions' | translate}}</a>
+				<a href="#app/lists/new" class="button button-light icon icon-top ion-ios-star-outline"><br>
+					{{'common_products' | translate}}</a>
+			</div>
+			<div class="button-bar">
+				<a href="#app/certDownload" class="button button-light icon icon-top ion-clipboard"><br>
+					{{'cert_download' | translate}}</a>
+				<a href="#app/searchAgent" class="button button-light icon icon-top ion-ios-location"><br>
+					{{'search_agent' | translate}}</a>
+				<a href="#app/frame/survey" class="button button-light icon icon-top ion-android-checkbox-outline"><br>
+					{{'survey' | translate}}</a>
+			</div>
+		</div>
+	</ion-content>
+</ion-view>
